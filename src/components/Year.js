@@ -17,7 +17,7 @@ export default class Year extends Component {
     const hasFilterDate = newProps.filterDate;
 
     const currentYearAfterFilterYear =
-      this.props.startDate.year >= newProps.filterDate.year;
+      this.props.startDate.plus({ weeks: 52 }).year >= newProps.filterDate.year;
 
     const startingYearBeforeCurrentYear =
       this.props.startDate.year <= DateTime.now().year;
