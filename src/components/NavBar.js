@@ -29,6 +29,12 @@ export default class NavBar extends Component {
           id: 2,
           date: DateTime.fromJSDate(new Date("06/16/2018")),
         },
+        {
+          title: "Graduated high school",
+          color: "#08DAFF",
+          id: 3,
+          date: DateTime.fromJSDate(new Date("06/10/2010")),
+        },
       ],
       activeButton: {},
     };
