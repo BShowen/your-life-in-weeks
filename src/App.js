@@ -3,12 +3,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Calendar from "./components/Calendar";
+import { DateTime } from "luxon";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      startDate: DateTime.fromJSDate(new Date("08/08/1992")),
+    };
   }
 
   render() {
@@ -23,7 +26,7 @@ export default class App extends Component {
             className="ps-0 pe-0 h-100"
             style={{ overflow: "scroll" }}
           >
-            <Calendar />
+            <Calendar startDate={this.state.startDate} />
           </Col>
         </Row>
       </Container>

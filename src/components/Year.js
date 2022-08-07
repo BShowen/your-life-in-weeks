@@ -4,8 +4,10 @@ import Week from "./Week";
 export default class Year extends Component {
   weeks() {
     const weeks = new Array(52);
+    const { startDate } = this.props;
     for (let i = 0; i < weeks.length; i++) {
-      weeks[i] = <Week key={i} {...this.props} />;
+      const weekDate = startDate.plus({ days: i * 7 });
+      weeks[i] = <Week key={i} date={weekDate} />;
     }
     return weeks;
   }
