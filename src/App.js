@@ -9,9 +9,21 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    const birthday = DateTime.fromJSDate(new Date("08/08/1992"));
     this.state = {
-      startDate: DateTime.fromJSDate(new Date("08/08/1992")),
+      birthday: birthday,
+      filterDate: "",
+      color: "",
     };
+
+    this.updateCalendar = this.updateCalendar.bind(this);
+  }
+
+  updateCalendar(filterDate, color) {
+    this.setState({
+      filterDate: filterDate,
+      backgroundColor: color,
+    });
   }
 
   render() {
@@ -19,14 +31,14 @@ export default class App extends Component {
       <Container fluid className="h-100">
         <Row className="h-100">
           <Col lg={2} className="ps-0 pe-0 h-100">
-            <NavBar />
+            <NavBar updateCalendar={this.updateCalendar} />
           </Col>
           <Col
             lg={10}
             className="ps-0 pe-0 h-100"
             style={{ overflow: "scroll" }}
           >
-            <Calendar startDate={this.state.startDate} />
+            <Calendar {...this.state} />
           </Col>
         </Row>
       </Container>

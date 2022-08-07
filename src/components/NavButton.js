@@ -10,7 +10,7 @@ export default class NavButton extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.clickHandler(this.props.id);
+    this.props.setAsActiveButton();
   }
 
   render() {

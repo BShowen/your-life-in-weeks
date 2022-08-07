@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Nav } from "react-bootstrap";
 import NavButton from "./NavButton";
 import NavAddButton from "./NavAddButton";
+import { DateTime } from "luxon";
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -9,11 +10,26 @@ export default class NavBar extends Component {
 
     this.state = {
       navButtons: [
-        { title: "Text 1", color: "#FBAE14", active: false, id: 0 },
-        { title: "Text 2", color: "#019BFD", active: false, id: 1 },
-        { title: "Text 2", color: "#00F0AC", active: false, id: 2 },
-        { title: "Text 2", color: "#E10075", active: false, id: 3 },
+        {
+          title: "Started my business",
+          color: "#FBAE14",
+          id: 0,
+          date: DateTime.fromJSDate(new Date("02/16/2016")),
+        },
+        {
+          title: "Bought my house",
+          color: "#FF3F52",
+          id: 1,
+          date: DateTime.fromJSDate(new Date("08/16/2021")),
+        },
+        {
+          title: "Started Coding",
+          color: "#00F0AC",
+          id: 2,
+          date: DateTime.fromJSDate(new Date("06/16/2018")),
+        },
       ],
+      activeButton: {},
     };
 
     this.createNewCategory = this.createNewCategory.bind(this);
@@ -23,7 +39,12 @@ export default class NavBar extends Component {
   navButtons() {
     const navButtons = this.state.navButtons.map((button, i) => {
       return (
-        <NavButton key={i} {...button} clickHandler={this.setActiveNavButton} />
+        <NavButton
+          key={i}
+          {...button}
+          setAsActiveButton={this.setActiveNavButton.bind(this, button.id)}
+          active={this.state.activeButton.id === button.id}
+        />
       );
     });
     return (
@@ -42,22 +63,22 @@ export default class NavBar extends Component {
   }
 
   setActiveNavButton(id) {
+    const activeButton = this.state.navButtons.find(
+      (button) => button.id === id
+    );
+
     this.setState({
-      navButtons: this.state.navButtons.map((navButton) => {
-        if (navButton.id === id) {
-          return { ...navButton, active: true };
-        } else {
-          return { ...navButton, active: false };
-        }
-      }),
+      activeButton: activeButton,
     });
+
+    this.props.updateCalendar(activeButton.date, activeButton.color);
   }
 
   render() {
     return (
       <Nav
         className="w-100 h-100 p-3 flex-column justify-content-between"
-        style={{ backgroundColor: "#000000" }}
+        style={{ backgroundColor: "#111032" }}
       >
         {this.navButtons()}
         <NavAddButton clickHandler={this.createNewCategory} />

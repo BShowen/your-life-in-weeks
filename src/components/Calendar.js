@@ -5,10 +5,15 @@ export default class Calendar extends Component {
   decades() {
     const decades = new Array(10);
     for (let i = 0; i < decades.length; i++) {
-      const { startDate } = this.props;
-      const decadeStartDate = startDate.plus({ years: i * 10 });
+      const { birthday } = this.props;
+      const decadeStartDate = birthday.plus({ years: i * 10 });
       decades[i] = (
-        <Decade key={i} startingYear={i * 10} startDate={decadeStartDate} />
+        <Decade
+          {...this.props}
+          key={i}
+          startingYear={i * 10}
+          startDate={decadeStartDate}
+        />
       );
     }
     return decades;
@@ -44,7 +49,7 @@ export default class Calendar extends Component {
         <div className="d-flex justify-content-center align-items-center p-5">
           <h1 className="p-0 m-0 text-light">Your life in weeks</h1>
         </div>
-        <div style={{ width: "85%" }}>
+        <div style={{ width: "95%" }}>
           {this.weekNumbers()}
           {this.decades()}
         </div>
