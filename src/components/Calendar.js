@@ -5,10 +5,15 @@ export default class Calendar extends Component {
   decades() {
     const decades = new Array(10);
     for (let i = 0; i < decades.length; i++) {
-      const { startDate } = this.props;
-      const decadeStartDate = startDate.plus({ years: i * 10 });
+      const { birthday } = this.props;
+      const decadeStartDate = birthday.plus({ years: i * 10 });
       decades[i] = (
-        <Decade key={i} startingYear={i * 10} startDate={decadeStartDate} />
+        <Decade
+          {...this.props}
+          key={i}
+          startingYear={i * 10}
+          startDate={decadeStartDate}
+        />
       );
     }
     return decades;

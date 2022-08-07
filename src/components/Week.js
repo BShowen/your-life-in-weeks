@@ -6,15 +6,27 @@ export default class Week extends Component {
     this.hoverHandler = this.hoverHandler.bind(this);
   }
 
-  hoverHandler() {
-    const { date } = this.props;
-    console.log(date.toLocaleString());
+  hoverHandler() {}
+
+  isDeathDay() {
+    const { weekDate, maleLifeSpan } = this.props;
+    const diff = maleLifeSpan.diff(weekDate, "days").toObject().days;
+    return diff === 0;
+  }
+
+  backgroundColor() {
+    if (this.isDeathDay()) return "#E0FD82";
+
+    const backgroundColor = this.props.backgroundColor
+      ? this.props.backgroundColor
+      : "#193688";
+
+    return backgroundColor;
   }
 
   render() {
-    const { backgroundColor } = this.props || "";
     const style = {
-      backgroundColor: backgroundColor || "#193688",
+      backgroundColor: this.backgroundColor(),
       borderRadius: "50%",
       height: "25px",
       width: "25px",

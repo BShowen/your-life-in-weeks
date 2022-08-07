@@ -9,8 +9,10 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    const birthday = DateTime.fromJSDate(new Date("08/08/1992"));
     this.state = {
-      startDate: DateTime.fromJSDate(new Date("08/08/1992")),
+      birthday: birthday,
+      maleLifeSpan: birthday.plus({ years: 79, weeks: 41 }),
     };
   }
 
@@ -26,7 +28,7 @@ export default class App extends Component {
             className="ps-0 pe-0 h-100"
             style={{ overflow: "scroll" }}
           >
-            <Calendar startDate={this.state.startDate} />
+            <Calendar {...this.state} />
           </Col>
         </Row>
       </Container>

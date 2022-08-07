@@ -7,7 +7,7 @@ export default class Year extends Component {
     const { startDate } = this.props;
     for (let i = 0; i < weeks.length; i++) {
       const weekDate = startDate.plus({ days: i * 7 });
-      weeks[i] = <Week key={i} date={weekDate} />;
+      weeks[i] = <Week {...this.props} key={i} weekDate={weekDate} />;
     }
     return weeks;
   }

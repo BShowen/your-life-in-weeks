@@ -10,6 +10,7 @@ export default class Decade extends Component {
       const yearStartDate = startDate.plus({ years: i });
       years[i] = (
         <Year
+          {...this.props}
           key={i}
           startingYear={startingYear + i}
           startDate={yearStartDate}
