@@ -12,6 +12,10 @@ export default class Decade extends Component {
   }
 
   render() {
-    return <Stack gap={2}>{this.decade()}</Stack>;
+    return (
+      <Stack className="mb-5" gap={2}>
+        {this.decade()}
+      </Stack>
+    );
   }
 }
