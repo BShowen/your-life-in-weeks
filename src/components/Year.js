@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Week from "./Week";
 
 export default class Year extends Component {
-  year() {
+  weeks() {
     const weeks = new Array(52);
     for (let i = 0; i < weeks.length; i++) {
       weeks[i] = <Week key={i} {...this.props} />;
     }
     return weeks;
   }
+
   render() {
     return (
       <>
@@ -22,7 +23,7 @@ export default class Year extends Component {
           >
             {this.props.startingYear}
           </p>
-          {this.year()}
+          {this.weeks()}
         </div>
       </>
     );
