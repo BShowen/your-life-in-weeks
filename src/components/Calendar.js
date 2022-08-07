@@ -24,12 +24,11 @@ export default class Calendar extends Component {
     for (let i = 0; i < weekNumbers.length; i++) {
       weekNumbers[i] = (
         <div
+          key={i}
           style={{ width: "1rem" }}
           className="d-flex flex-row justify-content-center align-items-center"
         >
-          <p key={i} className="text-light text-center p-0 m-0">
-            {i.toString()}
-          </p>
+          <p className="text-light text-center p-0 m-0">{i.toString()}</p>
         </div>
       );
     }
