@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Calendar from "./components/Calendar";
 import { DateTime } from "luxon";
+import KurzgesagtBackground from "./images/kurzgesagt-background.png";
 
 export default class App extends Component {
   constructor(props) {
@@ -28,20 +29,29 @@ export default class App extends Component {
 
   render() {
     return (
-      <Container fluid className="h-100 p-0">
-        <Row className="h-100 p-0 m-0">
-          <Col sm={12} xl={3} className="ps-0 pe-0 h-100">
-            <NavBar updateCalendar={this.updateCalendar} />
-          </Col>
-          <Col
-            sm={12}
-            xl={9}
-            className="ps-0 pe-0 h-100"
-            style={{ overflow: "scroll" }}
-          >
-            <Calendar {...this.state} />
-          </Col>
-        </Row>
+      <Container
+        fluid
+        className="h-100 p-0 m-0"
+        style={{
+          backgroundImage: `url(${KurzgesagtBackground})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <Container fluid className="h-100 p-0" style={{ maxWidth: "1600px" }}>
+          <Row className="h-100 p-0 m-0">
+            <Col sm={12} xl={3} className="ps-0 pe-0 h-100">
+              <NavBar updateCalendar={this.updateCalendar} />
+            </Col>
+            <Col
+              sm={12}
+              xl={9}
+              className="ps-0 pe-0 h-100"
+              style={{ overflow: "scroll" }}
+            >
+              <Calendar {...this.state} />
+            </Col>
+          </Row>
+        </Container>
       </Container>
     );
   }
