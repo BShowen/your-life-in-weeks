@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
 
 export default class Week extends Component {
   render() {
@@ -7,7 +6,9 @@ export default class Week extends Component {
     const style = {
       backgroundColor: backgroundColor || "#193688",
       borderRadius: "50%",
+      height: "25px",
+      width: "25px",
     };
-    return <Container style={style}></Container>;
+    return <div style={style}></div>;
   }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
 import Week from "./Week";
 
 export default class Year extends Component {
@@ -12,12 +11,9 @@ export default class Year extends Component {
   }
   render() {
     return (
-      <Container
-        fluid
-        className="d-flex flex-row flex-content-center flex-nowrap"
-      >
+      <div className="d-flex flex-row justify-content-between flex-nowrap">
         {this.year()}
-      </Container>
+      </div>
     );
   }
 }
