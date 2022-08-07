@@ -11,9 +11,20 @@ export default class Year extends Component {
   }
   render() {
     return (
-      <div className="d-flex flex-row justify-content-between flex-nowrap">
-        {this.year()}
-      </div>
+      <>
+        <div
+          className="d-flex flex-row justify-content-between flex-nowrap"
+          style={{ position: "relative" }}
+        >
+          <p
+            className="p-0 m-0 text-light"
+            style={{ position: "absolute", left: "-30px" }}
+          >
+            {this.props.startingYear}
+          </p>
+          {this.year()}
+        </div>
+      </>
     );
   }
 }

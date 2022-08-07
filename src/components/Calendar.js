@@ -6,7 +6,7 @@ export default class Calendar extends Component {
     const decades = new Array(10);
     for (let i = 0; i < decades.length; i++) {
       // {i * 10} to {(i + 1) * 10 - 1}
-      decades[i] = <Decade key={i} />;
+      decades[i] = <Decade key={i} startingYear={i * 10} />;
     }
     return decades;
   }

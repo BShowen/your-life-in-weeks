@@ -3,10 +3,13 @@ import { Stack } from "react-bootstrap";
 import Year from "./Year";
 
 export default class Decade extends Component {
-  decade() {
+  decades() {
     const years = new Array(10);
+    const { startingYear } = this.props;
     for (let i = 0; i < years.length; i++) {
-      years[i] = <Year key={i} {...this.props} />;
+      years[i] = (
+        <Year key={i} {...this.props} startingYear={startingYear + i} />
+      );
     }
     return years;
   }
@@ -14,7 +17,7 @@ export default class Decade extends Component {
   render() {
     return (
       <Stack className="mb-5" gap={2}>
-        {this.decade()}
+        {this.decades()}
       </Stack>
     );
   }
