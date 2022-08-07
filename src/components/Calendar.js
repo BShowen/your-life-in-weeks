@@ -41,7 +41,7 @@ export default class Calendar extends Component {
         <div className="d-flex justify-content-center align-items-center p-5">
           <h1 className="p-0 m-0 text-light">Your life in weeks</h1>
         </div>
-        <div className="w-75">
+        <div style={{ width: "85%" }}>
           {this.weekNumbers()}
           {this.decades()}
         </div>
