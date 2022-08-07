@@ -40,20 +40,20 @@ export default class Year extends Component {
 
   render() {
     return (
-      <>
+      <div className="d-flex flex-row justify-content-between  align-items-center flex-nowrap">
         <div
-          className="d-flex flex-row justify-content-between flex-nowrap"
-          style={{ position: "relative" }}
+          style={{
+            height: "1rem",
+            width: "1rem",
+          }}
+          className="d-flex flex-row justify-content-center align-items-center"
         >
-          <p
-            className="p-0 m-0 text-light"
-            style={{ position: "absolute", left: "-30px" }}
-          >
+          <p className="p-0 m-0 text-light" style={{ fontSize: "0.8rem" }}>
             {this.props.startingYear}
           </p>
-          {this.weeks()}
         </div>
-      </>
+        {this.weeks()}
+      </div>
     );
   }
 }

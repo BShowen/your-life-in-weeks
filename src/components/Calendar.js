@@ -20,20 +20,28 @@ export default class Calendar extends Component {
   }
 
   weekNumbers() {
-    const weekNumbers = new Array(52);
+    const weekNumbers = new Array(53);
     for (let i = 0; i < weekNumbers.length; i++) {
       weekNumbers[i] = (
-        <p
-          key={i}
-          className="text-light text-center p-0 m-0"
-          style={{ width: "25px" }}
+        <div
+          style={{ width: "1rem" }}
+          className="d-flex flex-row justify-content-center align-items-center"
         >
-          {(i + 1).toString()}
-        </p>
+          <p key={i} className="text-light text-center p-0 m-0">
+            {i.toString()}
+          </p>
+        </div>
       );
     }
     return (
-      <div className="d-flex flex-row justify-content-between flex-nowrap mb-3">
+      <div
+        className="d-flex flex-row justify-content-between flex-nowrap mb-3 pt-2 pb-2"
+        style={{
+          backgroundColor: "#3B37A1",
+          borderRadius: "0.2rem",
+          fontSize: "0.8rem",
+        }}
+      >
         {weekNumbers}
       </div>
     );
@@ -43,13 +51,12 @@ export default class Calendar extends Component {
     return (
       <div
         style={{ backgroundColor: "#000000" }}
-        gap={1}
-        className="ps-2 pe-4 d-flex flex-column align-items-center"
+        className="ps-5 pe-5 pt-2 d-flex flex-column"
       >
         <div className="d-flex justify-content-center align-items-center p-5">
           <h1 className="p-0 m-0 text-light">Your life in weeks</h1>
         </div>
-        <div style={{ width: "95%" }}>
+        <div>
           {this.weekNumbers()}
           {this.decades()}
         </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Nav } from "react-bootstrap";
 import NavButton from "./NavButton";
 import NavAddButton from "./NavAddButton";
+import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
 
 export default class NavBar extends Component {
@@ -53,6 +54,7 @@ export default class NavBar extends Component {
         className="d-flex flex-column justify-content-start"
         style={{ gap: "15px" }}
       >
+        <NavBrand />
         {navButtons}
       </Container>
     );

@@ -28,13 +28,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <Container fluid className="h-100">
-        <Row className="h-100">
-          <Col lg={2} className="ps-0 pe-0 h-100">
+      <Container fluid className="h-100 p-0">
+        <Row className="h-100 p-0 m-0">
+          <Col sm={12} xl={3} className="ps-0 pe-0 h-100">
             <NavBar updateCalendar={this.updateCalendar} />
           </Col>
           <Col
-            lg={10}
+            sm={12}
+            xl={9}
             className="ps-0 pe-0 h-100"
             style={{ overflow: "scroll" }}
           >
