@@ -21,7 +21,7 @@ export default class Week extends Component {
     if (this.isDeathDay()) return "#E0FD82";
 
     const weekDateIsAfterFilterDate =
-      this.props.weekDate >= this.props.filterDate;
+      this.props.weekDate.plus({ days: 6 }) >= this.props.filterDate;
     const weekDateIsBeforeToday = this.props.weekDate <= DateTime.now();
     if (
       this.props.filterDate &&
@@ -38,7 +38,8 @@ export default class Week extends Component {
   shouldComponentUpdate(newProps) {
     const hasFilterDate = newProps.filterDate;
 
-    const currentDateAfterFilter = this.props.weekDate >= newProps.filterDate;
+    const currentDateAfterFilter =
+      this.props.weekDate.plus({ days: 6 }) >= newProps.filterDate;
 
     const currentDateBeforeToday = this.props.weekDate <= DateTime.now();
 
