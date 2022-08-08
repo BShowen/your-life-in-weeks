@@ -28,7 +28,7 @@ export default class Decade extends Component {
       this.props.startDate.year + 9 >= newProps.filterDate.year;
 
     const currentDecadeBeforeToday =
-      this.props.startDate.year + 9 <= DateTime.now().year;
+      this.props.startDate.year <= DateTime.now().year;
 
     const filterHasChanged = this.props.filterDate
       ? this.props.filterDate.toMillis() !== newProps.filterDate.toMillis()
