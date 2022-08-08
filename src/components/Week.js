@@ -64,7 +64,7 @@ export default class Week extends Component {
   render() {
     const style = {
       backgroundColor: this.backgroundColor(),
-      borderRadius: "0.3rem",
+      borderRadius: "0.1rem",
       height: "1rem",
       width: "1rem",
     };
