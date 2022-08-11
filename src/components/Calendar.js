@@ -52,7 +52,7 @@ export default class Calendar extends Component {
         style={{ backgroundColor: "#000000" }}
         className="ps-sm-1 pe-sm-1 ps-xl-3 pe-xl-3 ps-xxl-5 pe-xxl-5 pt-2 d-flex flex-column"
       >
-        <div className="d-flex justify-content-center align-items-center p-5">
+        <div className="d-flex justify-content-center align-items-center p-2 p-lg-5">
           <h1 className="p-0 m-0 text-light">Your life in weeks</h1>
         </div>
         <div>
