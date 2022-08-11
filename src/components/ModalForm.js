@@ -4,7 +4,7 @@ import AddButton from "./AddButton";
 export default function ModalForm(props) {
   if (props.isShowing) {
     return (
-      <Modal show={props.isShowing} onHide={props.toggle}>
+      <Modal show={props.isShowing} onHide={props.onHide || props.toggle}>
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
         </Modal.Header>

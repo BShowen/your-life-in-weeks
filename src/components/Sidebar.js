@@ -11,32 +11,7 @@ export default class Sidebar extends Component {
     super(props);
 
     this.state = {
-      navButtons: [
-        {
-          title: "Started my business",
-          color: "#FBAE14",
-          id: 0,
-          date: DateTime.fromISO("2016-02-16"),
-        },
-        {
-          title: "Bought my house",
-          color: "#FF3F52",
-          id: 1,
-          date: DateTime.fromISO("2021-08-15"),
-        },
-        {
-          title: "Started Coding",
-          color: "#00F0AC",
-          id: 2,
-          date: DateTime.fromISO("2018-06-16"),
-        },
-        {
-          title: "Graduated high school",
-          color: "#08DAFF",
-          id: 3,
-          date: DateTime.fromISO("2010-06-10"),
-        },
-      ],
+      navButtons: [],
       activeButton: {},
       modalShowing: false,
     };
