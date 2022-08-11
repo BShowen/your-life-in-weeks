@@ -11,6 +11,16 @@
   right: 15px;
 }
 
+.rotate {
+  transform: rotate(-0.5turn);
+}
+
+.hamburger {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 250ms;
+}
+
 
 @media only screen and (min-width: 992px) { /* for screens wider than 992px */
   #app-container {

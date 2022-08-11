@@ -5,6 +5,7 @@ import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
 import ModalForm from "./ModalForm";
 import NewCategoryForm from "./NewCategoryForm";
+import { FaHamburger } from "react-icons/fa";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -14,11 +15,13 @@ export default class Sidebar extends Component {
       navButtons: [],
       activeButton: {},
       modalShowing: false,
+      rotateMenuHamburger: false,
     };
 
     this.createNewCategory = this.createNewCategory.bind(this);
     this.setActiveNavButton = this.setActiveNavButton.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.rotateHamburger = this.rotateHamburger.bind(this);
   }
 
   navButtons() {
@@ -66,12 +69,21 @@ export default class Sidebar extends Component {
     this.props.updateCalendar(activeButton.date, activeButton.color);
   }
 
+  rotateHamburger() {
+    this.setState({
+      rotateMenuHamburger: !this.state.rotateMenuHamburger,
+    });
+  }
+
   render() {
+    const hamburgerIconClass = this.state.rotateMenuHamburger
+      ? "hamburger rotate"
+      : "hamburger";
     return (
       <>
         <Navbar
           expand="lg"
-          className="flex-column"
+          className="flex-column pt-3 pb-3"
           style={{ backgroundColor: "#111032", minWidth: "320px" }}
         >
           <Container id="nav-container">
@@ -80,8 +92,9 @@ export default class Sidebar extends Component {
               aria-controls="basic-navbar-nav"
               className="text-light w-100"
               style={{ textAlign: "right" }}
+              onClick={this.rotateHamburger}
             >
-              X
+              <FaHamburger className={hamburgerIconClass} />
             </Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav" className="pt-2 w-100">
               <Nav className="flex-column w-100">{this.navButtons()}</Nav>
