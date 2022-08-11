@@ -40,11 +40,14 @@ export default class Year extends Component {
 
   render() {
     return (
-      <div className="d-flex flex-row justify-content-between  align-items-center flex-nowrap">
+      <div
+        className="d-flex flex-row justify-content-between  align-items-center flex-nowrap"
+        style={{ gap: "1px" }}
+      >
         <div
           style={{
-            height: "1rem",
-            width: "1rem",
+            width: "100%",
+            aspectRatio: "1",
           }}
           className="d-flex flex-row justify-content-center align-items-center"
         >
