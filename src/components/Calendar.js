@@ -49,7 +49,7 @@ export default class Calendar extends Component {
   render() {
     return (
       <div
-        style={{ backgroundColor: "#000000", border: "2px solid red" }}
+        style={{ backgroundColor: "#000000" }}
         className="ps-sm-1 pe-sm-1 ps-xl-3 pe-xl-3 ps-xxl-5 pe-xxl-5 pt-2 d-flex flex-column"
       >
         <div className="d-flex justify-content-center align-items-center p-5">
