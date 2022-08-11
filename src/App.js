@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    const birthday = DateTime.fromJSDate(new Date("08/08/1992"));
+    const birthday = DateTime.fromISO("1992-08-08");
     this.state = {
       birthday: birthday,
       filterDate: "",

@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import NavButton from "./NavButton";
 import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
-import AddButton from "./AddButton";
+import ModalForm from "./ModalForm";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -15,25 +15,25 @@ export default class Sidebar extends Component {
           title: "Started my business",
           color: "#FBAE14",
           id: 0,
-          date: DateTime.fromJSDate(new Date("02/16/2016")),
+          date: DateTime.fromISO("2016-02-16"),
         },
         {
           title: "Bought my house",
           color: "#FF3F52",
           id: 1,
-          date: DateTime.fromJSDate(new Date("08/16/2021")),
+          date: DateTime.fromISO("2021-08-15"),
         },
         {
           title: "Started Coding",
           color: "#00F0AC",
           id: 2,
-          date: DateTime.fromJSDate(new Date("06/16/2018")),
+          date: DateTime.fromISO("2018-06-16"),
         },
         {
           title: "Graduated high school",
           color: "#08DAFF",
           id: 3,
-          date: DateTime.fromJSDate(new Date("06/10/2010")),
+          date: DateTime.fromISO("2010-06-10"),
         },
       ],
       activeButton: {},
@@ -57,8 +57,16 @@ export default class Sidebar extends Component {
     return navButtons;
   }
 
-  createNewCategory() {
-    console.log("NavAddButton clicked");
+  createNewCategory(category) {
+    const id = this.state.navButtons.length;
+    const newCategory = {
+      ...category,
+      date: DateTime.fromISO(category.date),
+      id,
+    };
+    this.setState({
+      navButtons: this.state.navButtons.concat(newCategory),
+    });
   }
 
   setActiveNavButton(id) {
@@ -95,7 +103,7 @@ export default class Sidebar extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <AddButton clickHandler={this.createNewCategory} />
+        <ModalForm addNewCategory={this.createNewCategory} />
       </>
     );
   }
