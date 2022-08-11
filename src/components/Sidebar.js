@@ -4,6 +4,7 @@ import NavButton from "./NavButton";
 import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
 import ModalForm from "./ModalForm";
+import NewCategoryForm from "./NewCategoryForm";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -37,10 +38,12 @@ export default class Sidebar extends Component {
         },
       ],
       activeButton: {},
+      modalShowing: false,
     };
 
     this.createNewCategory = this.createNewCategory.bind(this);
     this.setActiveNavButton = this.setActiveNavButton.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   navButtons() {
@@ -66,6 +69,13 @@ export default class Sidebar extends Component {
     };
     this.setState({
       navButtons: this.state.navButtons.concat(newCategory),
+      modalShowing: false,
+    });
+  }
+
+  toggleModal() {
+    this.setState({
+      modalShowing: !this.state.modalShowing,
     });
   }
 
@@ -103,7 +113,12 @@ export default class Sidebar extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <ModalForm addNewCategory={this.createNewCategory} />
+        <ModalForm
+          isShowing={this.state.modalShowing}
+          toggle={this.toggleModal}
+          title="Add a new category"
+          form={<NewCategoryForm handleSubmit={this.createNewCategory} />}
+        />
       </>
     );
   }
