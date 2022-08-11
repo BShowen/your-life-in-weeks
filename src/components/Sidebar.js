@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import NavButton from "./NavButton";
-import NavAddButton from "./NavAddButton";
 import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
+import AddButton from "./AddButton";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -75,25 +75,28 @@ export default class Sidebar extends Component {
 
   render() {
     return (
-      <Navbar
-        expand="lg"
-        className="flex-column"
-        style={{ backgroundColor: "#111032", minWidth: "320px" }}
-      >
-        <Container id="nav-container">
-          <NavBrand />
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            className="text-light w-100"
-            style={{ textAlign: "right" }}
-          >
-            X
-          </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav" className="pt-2 w-100">
-            <Nav className="flex-column w-100">{this.navButtons()}</Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <>
+        <Navbar
+          expand="lg"
+          className="flex-column"
+          style={{ backgroundColor: "#111032", minWidth: "320px" }}
+        >
+          <Container id="nav-container">
+            <NavBrand />
+            <Navbar.Toggle
+              aria-controls="basic-navbar-nav"
+              className="text-light w-100"
+              style={{ textAlign: "right" }}
+            >
+              X
+            </Navbar.Toggle>
+            <Navbar.Collapse id="basic-navbar-nav" className="pt-2 w-100">
+              <Nav className="flex-column w-100">{this.navButtons()}</Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <AddButton clickHandler={this.createNewCategory} />
+      </>
     );
   }
 }

@@ -2,12 +2,26 @@
   flex-direction: column;
 }
 
+#add-button{
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  color: #FFC107;
+  bottom: 15px;
+  right: 15px;
+}
+
+
 @media only screen and (min-width: 992px) { /* for screens wider than 992px */
   #app-container {
     flex-direction: row;
   } 
-
+  
   #nav-container {
     flex-direction: column;
+  }
+
+  #add-button:hover{
+    color: #d6a100;
   }
 }
