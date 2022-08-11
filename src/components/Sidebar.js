@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Nav } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import NavButton from "./NavButton";
 import NavAddButton from "./NavAddButton";
 import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
 
-export default class NavBar extends Component {
+export default class Sidebar extends Component {
   constructor(props) {
     super(props);
 
@@ -54,16 +54,7 @@ export default class NavBar extends Component {
         />
       );
     });
-    return (
-      <Container
-        fluid
-        className="d-flex flex-column justify-content-start"
-        style={{ gap: "15px" }}
-      >
-        <NavBrand />
-        {navButtons}
-      </Container>
-    );
+    return navButtons;
   }
 
   createNewCategory() {
@@ -84,13 +75,25 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <Nav
-        className="w-100 h-100 p-3 flex-column justify-content-between"
-        style={{ backgroundColor: "#111032" }}
+      <Navbar
+        expand="lg"
+        className="flex-column"
+        style={{ backgroundColor: "#111032", minWidth: "320px" }}
       >
-        {this.navButtons()}
-        <NavAddButton clickHandler={this.createNewCategory} />
-      </Nav>
+        <Container id="nav-container">
+          <NavBrand />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className="text-light w-100"
+            style={{ textAlign: "right" }}
+          >
+            X
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-nav" className="pt-2 w-100">
+            <Nav className="flex-column w-100">{this.navButtons()}</Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     );
   }
 }

@@ -5,15 +5,16 @@ export default class NavAddButton extends Component {
   render() {
     const { clickHandler } = this.props;
     return (
-      <Container
-        as="div"
-        fluid
-        className="d-flex flex-row justify-content-start"
+      <div
+        // as="div"
+        // fluid
+        // className="d-flex flex-row justify-content-start"
+        style={{ border: "1px solid red" }}
       >
         <Button variant="primary" onClick={clickHandler}>
           +
         </Button>
-      </Container>
+      </div>
     );
   }
 }

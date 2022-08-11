@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 
 export default class NavButton extends Component {
   constructor(props) {
@@ -17,14 +17,12 @@ export default class NavButton extends Component {
     const { title, color } = this.props;
     const borderColor = this.props.active ? color : "#8610A8";
     return (
-      <Container
-        fluid
-        as="div"
-        className="d-flex flex-row flex-nowrap flex-content-between align-items-center"
+      <Nav.Link
+        className="ps-2 pe-2 mt-1 mb-1 d-flex flex-row flex-nowrap align-items-center"
         style={{
           backgroundColor: "#8610A8",
           border: `2px solid ${borderColor}`,
-          height: "50px",
+          height: "2.5rem",
           gap: "10px",
           color: "#FFFFFF",
           borderRadius: "12px",
@@ -38,11 +36,11 @@ export default class NavButton extends Component {
             width: "20px",
             height: "20px",
           }}
-        ></div>
+        />
         <div>
           <p className="p-0 m-0">{title}</p>
         </div>
-      </Container>
+      </Nav.Link>
     );
   }
 }

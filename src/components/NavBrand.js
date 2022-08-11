@@ -2,14 +2,12 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import kurzgesagtLogo from "../images/kurzgesagt-logo.webp";
 import { GoMarkGithub } from "react-icons/go";
+import { Navbar } from "react-bootstrap";
 
 export default function NavBrand() {
   return (
-    <div
-      className="text-light d-flex flex-column align-items-center justify-content-evenly pt-3"
-      style={{ height: "10rem" }}
-    >
-      <div className="w-75 d-flex flex-row align-items-center justify-content-between">
+    <Navbar.Brand className="d-none d-lg-block text-light d-flex flex-column p-0 m-0 w-100">
+      <div className="mt-3 d-flex flex-row align-items-center justify-content-between">
         <p className="p-0 m-0 fs-6">Inspired by Kursgesagt </p>
         <a
           href="https://www.kurzgesagt.org/about/"
@@ -24,7 +22,7 @@ export default function NavBrand() {
           />
         </a>
       </div>
-      <div className="w-75 d-flex flex-row align-items-center justify-content-between">
+      <div className="mt-3 d-flex flex-row align-items-center justify-content-between">
         <p className="p-0 m-0 fs-6">Created by Bradley Showen</p>
         <a
           href="https://www.github.com/BShowen"
@@ -36,6 +34,6 @@ export default function NavBrand() {
           />
         </a>
       </div>
-    </div>
+    </Navbar.Brand>
   );
 }
