@@ -5,3 +5,8 @@ html, body, #root {
 body {
   background-color: #111032;
 }
+
+#root{
+  background-image: url("./images/kurzgesagt-background.png");
+  background-size: cover;
+}
