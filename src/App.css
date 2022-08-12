@@ -21,11 +21,12 @@
   transition: transform 250ms;
 }
 
-#year{
+#decade-year{
   width: 200vw;
   transform-origin: left;
   transform: scale(0.5);
   z-index: 0;
+  gap: 2px;
 }
 
 @media only screen and (min-width: 992px) { /* for screens wider than 992px */
@@ -41,7 +42,7 @@
     color: #d6a100;
   }
 
-  #year{
+  #decade-year{
     width: 100%;
     transform: none;
     gap: 2px;
