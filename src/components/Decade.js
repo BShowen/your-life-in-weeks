@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Stack } from "react-bootstrap";
 import Year from "./Year";
 import { DateTime } from "luxon";
 
@@ -48,9 +47,9 @@ export default class Decade extends Component {
 
   render() {
     return (
-      <Stack className="mb-5" gap={2}>
+      <div id="decade" className="mb-4 d-flex flex-column">
         {this.years()}
-      </Stack>
+      </div>
     );
   }
 }

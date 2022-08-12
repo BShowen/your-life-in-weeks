@@ -41,8 +41,8 @@ export default class Year extends Component {
   render() {
     return (
       <div
-        className="d-flex flex-row justify-content-between  align-items-center flex-nowrap"
-        style={{ gap: "1px" }}
+        className="d-flex flex-row justify-content-between align-items-center flex-nowrap"
+        id="year"
       >
         <div
           style={{

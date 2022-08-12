@@ -21,6 +21,12 @@
   transition: transform 250ms;
 }
 
+#year{
+  width: 200vw;
+  transform-origin: left;
+  transform: scale(0.5);
+  z-index: 0;
+}
 
 @media only screen and (min-width: 992px) { /* for screens wider than 992px */
   #app-container {
@@ -33,5 +39,15 @@
 
   #add-button:hover{
     color: #d6a100;
+  }
+
+  #year{
+    width: 100%;
+    transform: none;
+    gap: 2px;
+  }
+
+  #decade{
+    gap: 10px;
   }
 }
