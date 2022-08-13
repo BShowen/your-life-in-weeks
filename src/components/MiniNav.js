@@ -41,7 +41,7 @@ export default class MiniNav extends Component {
         content={
           <div>
             <NavBrand />
-            <Nav className="flex-column pt-2 w-100">
+            <Nav className="flex-column w-100">
               <div
                 className={`${navButtons ? "" : "d-none"}`}
                 style={{
