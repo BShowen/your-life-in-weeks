@@ -65,7 +65,9 @@ export default class DateInput extends Component {
 
   render() {
     return (
-      <div className="d-flex flex-row justify-content-evenly m-0">
+      <div
+        className={`d-flex flex-row justify-content-between m-0 ${this.props.className}`}
+      >
         <Form.Group>
           <Form.Select
             onChange={this.onChange}

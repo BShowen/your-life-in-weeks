@@ -28,9 +28,11 @@ export default class BirthdayForm extends Component {
   render() {
     return (
       <Form onSubmit={this.handleFormSubmit}>
-        <DateInput onChange={this.onChange} />
-        <Form.Group className="d-flex justify-content-end">
-          <Button type="submit">Submit</Button>
+        <DateInput onChange={this.onChange} className="mt-2" />
+        <Form.Group className="d-flex mt-4 mb-2">
+          <Button style={{ flexGrow: 1 }} type="submit">
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     );

@@ -9,7 +9,7 @@ export default class NewCategoryForm extends Component {
     this.state = {
       title: "",
       date: {},
-      color: "#000000",
+      color: "#ff00d4",
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -60,8 +60,10 @@ export default class NewCategoryForm extends Component {
           <Form.Control type="color" onChange={this.onChange} value={color} />
         </Form.Group>
 
-        <Form.Group className="d-flex justify-content-end">
-          <Button type="submit">Submit</Button>
+        <Form.Group className="d-flex mt-4 mb-2">
+          <Button style={{ flexGrow: 1 }} type="submit">
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     );
