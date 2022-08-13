@@ -17,13 +17,12 @@ export default class Sidebar extends Component {
       navButtons: [],
       activeButton: {},
       modalShowing: false,
-      rotateMenuHamburger: false,
     };
 
     this.createNewCategory = this.createNewCategory.bind(this);
-    this.setActiveNavButton = this.setActiveNavButton.bind(this);
+    this.toggleActiveButton = this.toggleActiveButton.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-    this.rotateHamburger = this.rotateHamburger.bind(this);
+    this.deleteCategory = this.deleteCategory.bind(this);
   }
 
   navButtons() {
@@ -32,8 +31,9 @@ export default class Sidebar extends Component {
         <NavButton
           key={i}
           {...button}
-          setAsActiveButton={this.setActiveNavButton.bind(this, button.id)}
           active={this.state.activeButton.id === button.id}
+          toggleActive={this.toggleActiveButton.bind(this, button.id)}
+          delete={this.deleteCategory}
         />
       );
     });
@@ -53,6 +53,25 @@ export default class Sidebar extends Component {
     });
   }
 
+  deleteCategory(e, id) {
+    e.stopPropagation();
+    if (this.state.activeButton.id === id) {
+      this.setState(
+        {
+          navButtons: this.state.navButtons.filter((event) => event.id !== id),
+          activeButton: {},
+        },
+        () => {
+          this.props.updateCalendar(DateTime.now(), "#193688");
+        }
+      );
+    } else {
+      this.setState({
+        navButtons: this.state.navButtons.filter((event) => event.id !== id),
+      });
+    }
+  }
+
   toggleModal() {
     hideAll({ duration: 250 });
     this.setState({
@@ -60,7 +79,15 @@ export default class Sidebar extends Component {
     });
   }
 
-  setActiveNavButton(id) {
+  toggleActiveButton(id) {
+    if (this.state.activeButton.id === id) {
+      this.setState({
+        activeButton: {},
+      });
+      this.props.updateCalendar(DateTime.now(), "#193688");
+      return;
+    }
+
     const activeButton = this.state.navButtons.find(
       (button) => button.id === id
     );
@@ -70,12 +97,6 @@ export default class Sidebar extends Component {
     });
 
     this.props.updateCalendar(activeButton.date, activeButton.color);
-  }
-
-  rotateHamburger() {
-    this.setState({
-      rotateMenuHamburger: !this.state.rotateMenuHamburger,
-    });
   }
 
   render() {

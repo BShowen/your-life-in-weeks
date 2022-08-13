@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
 import { hideAll } from "tippy.js";
+import { RiDeleteBack2Line } from "react-icons/ri";
 
 export default class NavButton extends Component {
   constructor(props) {
@@ -12,11 +13,11 @@ export default class NavButton extends Component {
   handleClick(e) {
     hideAll({ duration: 250 });
     e.preventDefault();
-    this.props.setAsActiveButton();
+    this.props.toggleActive();
   }
 
   render() {
-    const { title, color } = this.props;
+    const { title, color, id } = this.props;
     const borderColor = this.props.active ? color : "#8610A8";
     return (
       <Nav.Item>
@@ -40,8 +41,16 @@ export default class NavButton extends Component {
               height: "20px",
             }}
           />
-          <div>
+          <div className="me-auto">
             <p className="p-0 m-0">{title}</p>
+          </div>
+          <div className="d-flex justify-content-center align-items-center">
+            <RiDeleteBack2Line
+              onClick={(e) => {
+                this.props.delete(e, id);
+              }}
+              style={{ height: "1.4rem", width: "1.4rem", color: "#DC3545" }}
+            />
           </div>
         </Nav.Link>
       </Nav.Item>
