@@ -2,23 +2,25 @@
   flex-direction: column;
 }
 
-#add-button{
+#tippy-button {
   position: absolute;
   width: 3rem;
   height: 3rem;
   color: #FFC107;
   bottom: 15px;
   right: 15px;
+  z-index: 1;
 }
 
 .rotate {
   transform: rotate(-0.5turn);
+  /* transform: rotateX(180deg); */
 }
 
-.hamburger {
-  width: 2rem;
-  height: 2rem;
-  transition: transform 250ms;
+.chevron {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 450ms;
 }
 
 #decade-year{
@@ -38,10 +40,6 @@
     flex-direction: column;
   }
 
-  #add-button:hover{
-    color: #d6a100;
-  }
-
   #decade-year{
     width: 100%;
     transform: none;
@@ -50,5 +48,9 @@
 
   #decade{
     gap: 10px;
+  }
+
+  #tippy-button{
+    display: none;
   }
 }

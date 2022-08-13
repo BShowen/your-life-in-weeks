@@ -5,7 +5,9 @@ import NavBrand from "./NavBrand";
 import { DateTime } from "luxon";
 import ModalForm from "./ModalForm";
 import NewCategoryForm from "./NewCategoryForm";
-import { FaHamburger } from "react-icons/fa";
+import AddButton from "./AddButton";
+import MiniNav from "./MiniNav";
+import { hideAll } from "tippy.js";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -52,6 +54,7 @@ export default class Sidebar extends Component {
   }
 
   toggleModal() {
+    hideAll({ duration: 250 });
     this.setState({
       modalShowing: !this.state.modalShowing,
     });
@@ -76,36 +79,35 @@ export default class Sidebar extends Component {
   }
 
   render() {
-    const hamburgerIconClass = this.state.rotateMenuHamburger
-      ? "hamburger rotate"
-      : "hamburger";
+    const navButtons = this.navButtons();
+    const createNewCategoryButton = (
+      <AddButton clickHandler={this.toggleModal} />
+    );
     return (
       <>
-        <Navbar
-          expand="lg"
-          className="flex-column pt-3 pb-3"
-          style={{ backgroundColor: "#111032", minWidth: "320px" }}
-        >
-          <Container id="nav-container">
-            <NavBrand />
-            <Navbar.Toggle
-              aria-controls="basic-navbar-nav"
-              className="text-light w-100"
-              style={{ textAlign: "right" }}
-              onClick={this.rotateHamburger}
-            >
-              <FaHamburger className={hamburgerIconClass} />
-            </Navbar.Toggle>
-            <Navbar.Collapse id="basic-navbar-nav" className="pt-2 w-100">
-              <Nav className="flex-column w-100">{this.navButtons()}</Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
         <ModalForm
           isShowing={this.state.modalShowing}
           toggle={this.toggleModal}
           title="Add a new category"
+          onHide={this.toggleModal}
           form={<NewCategoryForm handleSubmit={this.createNewCategory} />}
+        />
+        <Navbar
+          className="d-none d-lg-flex flex-column pt-3 pb-3"
+          style={{ backgroundColor: "#111032", minWidth: "320px" }}
+        >
+          <Container id="nav-container">
+            <NavBrand />
+            <Nav className="flex-column pt-2 w-100">
+              {navButtons}
+              <hr />
+              {createNewCategoryButton}
+            </Nav>
+          </Container>
+        </Navbar>
+        <MiniNav
+          navButtons={navButtons}
+          createNewCategoryButton={createNewCategoryButton}
         />
       </>
     );

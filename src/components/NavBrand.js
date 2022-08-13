@@ -6,7 +6,7 @@ import { Navbar } from "react-bootstrap";
 
 export default function NavBrand() {
   return (
-    <Navbar.Brand className="d-none d-lg-block text-light d-flex flex-column p-0 m-0 w-100">
+    <Navbar.Brand className="d-block d-lg-block text-light d-flex flex-column p-0 m-0 w-100">
       <div className="mt-3 d-flex flex-row align-items-center justify-content-between">
         <p className="p-0 m-0 fs-6">Inspired by Kursgesagt </p>
         <a
