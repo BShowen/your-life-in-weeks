@@ -12,10 +12,11 @@ export default class AddButton extends Component {
           style={{
             backgroundColor: "#8610A8",
             border: "2px solid #8610A8",
-            height: "2.5rem",
+            minHeight: "3rem",
             gap: "10px",
             color: "#FFFFFF",
             borderRadius: "12px",
+            fontSize: "1.4rem",
           }}
         >
           <div
