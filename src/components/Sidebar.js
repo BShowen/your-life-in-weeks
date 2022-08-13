@@ -42,7 +42,7 @@ export default class Sidebar extends Component {
     const id = this.state.navButtons.length;
     const newCategory = {
       ...category,
-      date: DateTime.fromISO(category.date),
+      date: DateTime.fromObject(category.date),
       id,
     };
     this.setState({

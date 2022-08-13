@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import DateInput from "./DateInput";
 
 export default class NewCategoryForm extends Component {
   constructor(props) {
@@ -7,12 +8,13 @@ export default class NewCategoryForm extends Component {
 
     this.state = {
       title: "",
-      date: "",
+      date: {},
       color: "#000000",
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onDateChange = this.onDateChange.bind(this);
   }
 
   handleFormSubmit(e) {
@@ -27,14 +29,19 @@ export default class NewCategoryForm extends Component {
     });
   }
 
+  onDateChange(date) {
+    this.setState({
+      date: date,
+    });
+  }
+
   render() {
-    const { title, date, color } = this.state;
+    const { title, color } = this.state;
     return (
       <Form onSubmit={this.handleFormSubmit}>
-        <Form.Group className="mb-2">
+        <Form.Group className="mb-2" controlId="title">
           <Form.Label>Title</Form.Label>
           <Form.Control
-            id="title"
             type="text"
             autoFocus
             required
@@ -43,25 +50,14 @@ export default class NewCategoryForm extends Component {
           />
         </Form.Group>
 
-        <Form.Group className="mb-2">
+        <Form.Group className="mb-2" controlId="date">
           <Form.Label>Start date</Form.Label>
-          <Form.Control
-            id="date"
-            type="date"
-            required
-            value={date}
-            onChange={this.onChange}
-          ></Form.Control>
+          <DateInput onChange={this.onDateChange} />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId="color">
           <Form.Label>Color</Form.Label>
-          <Form.Control
-            id="color"
-            type="color"
-            onChange={this.onChange}
-            value={color}
-          />
+          <Form.Control type="color" onChange={this.onChange} value={color} />
         </Form.Group>
 
         <Form.Group className="d-flex justify-content-end">
