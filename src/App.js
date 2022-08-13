@@ -33,7 +33,7 @@ export default class App extends Component {
   setBirthday(formParams) {
     if (this.state.birthday.length) return;
     this.setState({
-      birthday: DateTime.fromISO(formParams.date),
+      birthday: DateTime.fromObject(formParams),
     });
   }
 

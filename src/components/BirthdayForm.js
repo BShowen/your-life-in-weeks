@@ -18,8 +18,7 @@ export default class BirthdayForm extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    console.log("Submit ->", this.state);
-    // this.props.handleSubmit(this.state);
+    this.props.handleSubmit(this.state);
   }
 
   onChange(e) {
@@ -69,7 +68,7 @@ export default class BirthdayForm extends Component {
   render() {
     return (
       <Form onSubmit={this.handleFormSubmit}>
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row justify-content-evenly">
           <Form.Group>
             <Form.Select
               onChange={this.onChange}
