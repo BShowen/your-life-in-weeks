@@ -3,6 +3,9 @@ import { Nav } from "react-bootstrap";
 import { hideAll } from "tippy.js";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { TbEdit } from "react-icons/tb";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import { CgMoreO } from "react-icons/cg";
 
 export default class NavButton extends Component {
   constructor(props) {
@@ -52,16 +55,45 @@ export default class NavButton extends Component {
             <p className="p-0 m-0">{title}</p>
           </div>
           <div className="d-flex justify-content-center align-items-center">
-            <TbEdit
-              onClick={this.editCategory}
-              style={{ height: "1.4rem", width: "1.4rem", color: "#FFC107" }}
-            />
-            <RiDeleteBack2Line
-              onClick={(e) => {
-                this.props.delete(e, id);
-              }}
-              style={{ height: "1.4rem", width: "1.4rem", color: "#DC3545" }}
-            />
+            <Tippy
+              interactive={true}
+              trigger={"click mouseenter"}
+              content={
+                <>
+                  <TbEdit
+                    onClick={this.editCategory}
+                    style={{
+                      height: "1.4rem",
+                      width: "1.4rem",
+                      color: "#FFC107",
+                    }}
+                  />
+                  <RiDeleteBack2Line
+                    onClick={(e) => {
+                      this.props.delete(e, id);
+                    }}
+                    style={{
+                      height: "1.4rem",
+                      width: "1.4rem",
+                      color: "#DC3545",
+                    }}
+                  />
+                </>
+              }
+            >
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                <CgMoreO
+                  style={{
+                    width: "1.5rem",
+                    height: "1.5rem",
+                  }}
+                />
+              </div>
+            </Tippy>
           </div>
         </Nav.Link>
       </Nav.Item>
