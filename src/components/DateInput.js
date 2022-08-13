@@ -6,11 +6,15 @@ export default class DateInput extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      month: DateTime.now().month,
-      day: DateTime.now().day,
-      year: DateTime.now().year,
-    };
+    if (this.props.defaultValues) {
+      this.state = { ...this.props.defaultValues };
+    } else {
+      this.state = {
+        month: DateTime.now().month,
+        day: DateTime.now().day,
+        year: DateTime.now().year,
+      };
+    }
 
     this.onChange = this.onChange.bind(this);
   }

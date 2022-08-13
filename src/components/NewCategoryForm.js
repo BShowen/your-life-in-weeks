@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import DateInput from "./DateInput";
+import { DateTime } from "luxon";
 
 export default class NewCategoryForm extends Component {
   constructor(props) {
@@ -8,7 +9,11 @@ export default class NewCategoryForm extends Component {
 
     this.state = {
       title: "",
-      date: {},
+      date: {
+        month: DateTime.now().month,
+        day: DateTime.now().day,
+        year: DateTime.now().year,
+      },
       color: "#ff00d4",
     };
 
@@ -52,7 +57,10 @@ export default class NewCategoryForm extends Component {
 
         <Form.Group className="mb-2" controlId="date">
           <Form.Label>Start date</Form.Label>
-          <DateInput onChange={this.onDateChange} />
+          <DateInput
+            onChange={this.onDateChange}
+            defaultValues={{ ...this.state.date }}
+          />
         </Form.Group>
 
         <Form.Group controlId="color">
