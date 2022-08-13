@@ -17,9 +17,10 @@ export default class Sidebar extends Component {
       navButtons: [],
       activeButton: {},
       modalShowing: false,
+      defaultFormValues: {},
     };
 
-    this.createNewCategory = this.createNewCategory.bind(this);
+    this.upsertCategory = this.upsertCategory.bind(this);
     this.toggleActiveButton = this.toggleActiveButton.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
@@ -34,23 +35,53 @@ export default class Sidebar extends Component {
           active={this.state.activeButton.id === button.id}
           toggleActive={this.toggleActiveButton.bind(this, button.id)}
           delete={this.deleteCategory}
+          editCategory={this.toggleModal.bind(this, null, { ...button })}
         />
       );
     });
     return navButtons;
   }
 
-  createNewCategory(category) {
-    const id = this.state.navButtons.length;
+  upsertCategory(formParams) {
+    if (formParams.id) {
+      this.updateCategory(formParams);
+    } else {
+      this.insertNewCategory(formParams);
+    }
+  }
+
+  insertNewCategory(formParams) {
+    // Make sure we never use an id of 0. This causes bugs within logic.
+    const id = this.state.navButtons.length + 1;
+
     const newCategory = {
-      ...category,
-      date: DateTime.fromObject(category.date),
+      ...formParams,
       id,
     };
     this.setState({
       navButtons: this.state.navButtons.concat(newCategory),
       modalShowing: false,
     });
+  }
+
+  updateCategory(formParams) {
+    this.setState(
+      {
+        modalShowing: false,
+        navButtons: this.state.navButtons.map((category) => {
+          if (category.id === formParams.id) {
+            return { ...category, ...formParams };
+          }
+          return category;
+        }),
+      },
+      () => {
+        const filterDate = DateTime.fromObject(formParams.date);
+        if (this.state.activeButton.id === formParams.id) {
+          this.props.updateCalendar(filterDate, formParams.color);
+        }
+      }
+    );
   }
 
   deleteCategory(e, id) {
@@ -72,10 +103,11 @@ export default class Sidebar extends Component {
     }
   }
 
-  toggleModal() {
+  toggleModal(e, values) {
     hideAll({ duration: 250 });
     this.setState({
       modalShowing: !this.state.modalShowing,
+      defaultFormValues: { ...values },
     });
   }
 
@@ -96,7 +128,8 @@ export default class Sidebar extends Component {
       activeButton: activeButton,
     });
 
-    this.props.updateCalendar(activeButton.date, activeButton.color);
+    const filterDate = DateTime.fromObject(activeButton.date);
+    this.props.updateCalendar(filterDate, activeButton.color);
   }
 
   render() {
@@ -109,9 +142,14 @@ export default class Sidebar extends Component {
         <ModalForm
           isShowing={this.state.modalShowing}
           toggle={this.toggleModal}
-          title="Add a new category"
+          title="Event details"
           onHide={this.toggleModal}
-          form={<NewCategoryForm handleSubmit={this.createNewCategory} />}
+          form={
+            <NewCategoryForm
+              handleSubmit={this.upsertCategory}
+              defaultValues={{ ...this.state.defaultFormValues }}
+            />
+          }
         />
         <Navbar
           className="d-none d-lg-flex flex-column pt-3 pb-3"

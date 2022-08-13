@@ -2,18 +2,25 @@ import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
 import { hideAll } from "tippy.js";
 import { RiDeleteBack2Line } from "react-icons/ri";
+import { TbEdit } from "react-icons/tb";
 
 export default class NavButton extends Component {
   constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.editCategory = this.editCategory.bind(this);
   }
 
   handleClick(e) {
     hideAll({ duration: 250 });
     e.preventDefault();
     this.props.toggleActive();
+  }
+
+  editCategory(e) {
+    e.stopPropagation();
+    this.props.editCategory();
   }
 
   render() {
@@ -45,6 +52,10 @@ export default class NavButton extends Component {
             <p className="p-0 m-0">{title}</p>
           </div>
           <div className="d-flex justify-content-center align-items-center">
+            <TbEdit
+              onClick={this.editCategory}
+              style={{ height: "1.4rem", width: "1.4rem", color: "#FFC107" }}
+            />
             <RiDeleteBack2Line
               onClick={(e) => {
                 this.props.delete(e, id);

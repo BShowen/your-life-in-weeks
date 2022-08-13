@@ -6,15 +6,15 @@ import { DateTime } from "luxon";
 export default class NewCategoryForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      title: "",
-      date: {
+      title: this.props.defaultValues?.title || "",
+      date: this.props.defaultValues?.date || {
         month: DateTime.now().month,
         day: DateTime.now().day,
         year: DateTime.now().year,
       },
-      color: "#ff00d4",
+      color: this.props.defaultValues?.color || "#ff00d4",
+      id: Number.parseInt(this.props.defaultValues?.id) || undefined,
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
