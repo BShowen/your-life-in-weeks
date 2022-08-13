@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Nav } from "react-bootstrap";
+import { Nav, Stack, Button } from "react-bootstrap";
 import { hideAll } from "tippy.js";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { TbEdit } from "react-icons/tb";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
 import { CgMoreO } from "react-icons/cg";
 
 export default class NavButton extends Component {
@@ -36,10 +37,12 @@ export default class NavButton extends Component {
           style={{
             backgroundColor: "#8610A8",
             border: `2px solid ${borderColor}`,
-            height: "2.5rem",
+            minHeight: "3rem",
             gap: "10px",
             color: "#FFFFFF",
             borderRadius: "12px",
+            width: "300px",
+            fontSize: "1.4rem",
           }}
           onClick={this.handleClick}
         >
@@ -47,8 +50,8 @@ export default class NavButton extends Component {
             style={{
               borderRadius: "50%",
               backgroundColor: color,
-              width: "20px",
-              height: "20px",
+              width: "30px",
+              height: "30px",
             }}
           />
           <div className="me-auto">
@@ -56,29 +59,44 @@ export default class NavButton extends Component {
           </div>
           <div className="d-flex justify-content-center align-items-center">
             <Tippy
+              theme="light"
               interactive={true}
               trigger={"click mouseenter"}
               content={
-                <>
-                  <TbEdit
+                <Stack className="pt-2 pb-2" gap={2}>
+                  <Button
+                    className="d-flex align-items-center justify-content-between ps-2 pe-2"
                     onClick={this.editCategory}
                     style={{
-                      height: "1.4rem",
-                      width: "1.4rem",
-                      color: "#FFC107",
+                      height: "2.5rem",
                     }}
-                  />
-                  <RiDeleteBack2Line
+                  >
+                    Edit &nbsp;
+                    <TbEdit
+                      style={{
+                        height: "1.4rem",
+                        width: "1.4rem",
+                        color: "#FFC107",
+                      }}
+                    />
+                  </Button>
+                  <Button
+                    className="d-flex align-items-center justify-content-between ps-2 pe-2"
                     onClick={(e) => {
                       this.props.delete(e, id);
                     }}
-                    style={{
-                      height: "1.4rem",
-                      width: "1.4rem",
-                      color: "#DC3545",
-                    }}
-                  />
-                </>
+                    style={{ height: "2.5rem" }}
+                  >
+                    Delete &nbsp;
+                    <RiDeleteBack2Line
+                      style={{
+                        height: "1.4rem",
+                        width: "1.4rem",
+                        color: "#DC3545",
+                      }}
+                    />
+                  </Button>
+                </Stack>
               }
             >
               <div
@@ -88,8 +106,8 @@ export default class NavButton extends Component {
               >
                 <CgMoreO
                   style={{
-                    width: "1.5rem",
-                    height: "1.5rem",
+                    width: "30px",
+                    height: "30px",
                   }}
                 />
               </div>
