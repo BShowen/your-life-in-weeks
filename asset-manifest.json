@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/your-life-in-weeks/static/css/main.195f74f8.css",
-    "main.js": "/your-life-in-weeks/static/js/main.3cf83a94.js",
+    "main.css": "/your-life-in-weeks/static/css/main.a59a2e26.css",
+    "main.js": "/your-life-in-weeks/static/js/main.9b73d892.js",
     "static/media/kurzgesagt-background.png": "/your-life-in-weeks/static/media/kurzgesagt-background.e26548561524464e64bc.png",
     "static/media/kurzgesagt-logo.webp": "/your-life-in-weeks/static/media/kurzgesagt-logo.12f0cbbb13ea8bfe2c30.webp",
     "index.html": "/your-life-in-weeks/index.html",
-    "main.195f74f8.css.map": "/your-life-in-weeks/static/css/main.195f74f8.css.map",
-    "main.3cf83a94.js.map": "/your-life-in-weeks/static/js/main.3cf83a94.js.map"
+    "main.a59a2e26.css.map": "/your-life-in-weeks/static/css/main.a59a2e26.css.map",
+    "main.9b73d892.js.map": "/your-life-in-weeks/static/js/main.9b73d892.js.map"
   },
   "entrypoints": [
-    "static/css/main.195f74f8.css",
-    "static/js/main.3cf83a94.js"
+    "static/css/main.a59a2e26.css",
+    "static/js/main.9b73d892.js"
   ]
 }
