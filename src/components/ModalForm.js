@@ -2,7 +2,11 @@ import { Modal, Container, Row, Col } from "react-bootstrap";
 
 export default function ModalForm(props) {
   return (
-    <Modal show={props.isShowing} onHide={props.onHide || props.toggle}>
+    <Modal
+      show={props.isShowing}
+      onHide={props.onHide || props.toggle}
+      style={{ paddingTop: "3rem" }}
+    >
       <Modal.Header closeButton>
         <Modal.Title>{props.title}</Modal.Title>
       </Modal.Header>
