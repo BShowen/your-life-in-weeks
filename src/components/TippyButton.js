@@ -8,7 +8,7 @@ export default function TippyButton(props) {
       variant="info"
       size="lg"
       onClick={toggleActive}
-      style={{ height: "3rem", width: "3rem" }}
+      style={{ height: "100%", width: "100%" }}
       className={"d-flex justify-content-center align-items-center p-1"}
     >
       <FaChevronCircleUp
