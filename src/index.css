@@ -1,17 +1,14 @@
-html, body, #root {
-  height: 100%;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-/* html body, #root{
-  min-height: calc(100% + env(safe-area-inset-top));
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-} */
-
-body {
-  background-color: #111032;
+html body{
+  height: calc(100vh + env(safe-area-inset-top));
+  padding: calc(env(safe-area-inset-top) - 16px) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) - 18px) env(safe-area-inset-left);
 }
 
 #root{
-  background-image: url("./images/kurzgesagt-background.png");
-  background-size: cover;
+  height: 100%;
 }
