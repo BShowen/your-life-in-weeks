@@ -1,4 +1,4 @@
-![Your life in weeks](https://github.com/BShowen/your-life-in-weeks/blob/main/readmeImages/YLIW.png Your Life In Weeks)
+![Your life in weeks](https://github.com/BShowen/your-life-in-weeks/blob/main/readmeImages/YLIW.png "Your Life In Weeks")
 
 ## Project: Your life in weeks.  
 The idea here is that you can track different life events using a life calendar. This calendar shows 100 years, starting on your birthday. Each year is broken into its weeks. When you view an event on your calendar the weeks will be filled in to show you how long this event has been happening. 
