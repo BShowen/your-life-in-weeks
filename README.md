@@ -4,7 +4,7 @@
 The idea here is that you can track different life events using a life calendar. This calendar shows 100 years, starting on your birthday. Each year is broken into its weeks. When you view an event on your calendar the weeks will be filled in to show you how long this event has been happening. 
 
 ###### View this app live [here](https://bshowen.github.io/your-life-in-weeks/)
-## 🙌 Project goal: 
+## Project goal: 
 This app was heavily inspired by the folks over at [kurzgesagt](https://shop-us.kurzgesagt.org/products/lifespan-calendar-poster?variant=39451596423216), specifically their [lifespan calendar poster](https://shop-us.kurzgesagt.org/products/lifespan-calendar-poster?variant=39451596423216). I wanted to try to recreate this poster and turn it into a simple webapp. I think it turned out great! 
 
 # 🧠 What I learned in this project
